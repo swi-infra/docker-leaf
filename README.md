@@ -16,5 +16,10 @@ Connect to Leaf environment
 > You can also pass in a path to a local directory that you would like the leaf workspace to be saved to, 
 > just mount the volume to /leaf as seen below.
 
-    docker run -it -v /home/$USER/.ssh/id_rsa:/root/.ssh/id_rsa -v /home/$USER/leaf_workspace:/leaf quay.io/swi-infra/leaf:latest
+    docker run -it \
+        --volume=/home/$USER/.ssh/id_rsa:/root/.ssh/id_rsa \
+        --volume=/home/$USER/leaf_workspace:/leaf \
+        --volume=/etc/ssl/certs:/etc/ssl/certs:ro \
+	    --volume=/usr/share/ca-certificates:/usr/share/ca-certificates/:ro \
+        quay.io/swi-infra/leaf:latest
 
