@@ -19,7 +19,8 @@ Connect to Leaf environment
     docker run -it \
         --volume=/home/$USER/.ssh/id_rsa:/root/.ssh/id_rsa \
         --volume=/home/$USER/leaf_workspace:/leaf \
+	--volume=/home/$USER/.leaf:/root/.leaf \
         --volume=/etc/ssl/certs:/etc/ssl/certs:ro \
-	    --volume=/usr/share/ca-certificates:/usr/share/ca-certificates/:ro \
+	--volume=/usr/share/ca-certificates:/usr/share/ca-certificates/:ro \
         quay.io/swi-infra/leaf:latest
 
